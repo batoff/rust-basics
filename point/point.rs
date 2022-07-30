@@ -14,6 +14,10 @@ fn max(a: i32, b: i32) -> i32 {
     }
 }
 
+fn print_point(point: &Point) {
+    println!("x: {}, y: {}", point.x, point.y);
+}
+
 fn main() {
     let max_num = max(10, 412);
     println!("{max_num}");
@@ -22,8 +26,8 @@ fn main() {
         x: 3,
         y: -6,
     };
-    println!("x: {}, y: {}", p.x, p.y);
-    
+    print_point(&p);
+
     // pretty-print for debug
     println!("{p:#?}");
 }
