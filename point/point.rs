@@ -1,3 +1,5 @@
+// have to dervie to print struct that doesn't implement manually Debug for :? syntax
+#[derive(Debug)]
 struct Point {
     x: i32,
     y: i32,
@@ -21,5 +23,8 @@ fn main() {
         y: -6,
     };
     println!("x: {}, y: {}", p.x, p.y);
+    
+    // pretty-print for debug
+    println!("{p:#?}");
 }
 
