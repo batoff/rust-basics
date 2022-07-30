@@ -5,6 +5,18 @@ struct Point {
     y: i32,
 }
 
+impl Point {
+    fn dist_from_origin(&self) -> f64 {
+        let sum_of_squares = self.x.pow(2) + self.y.pow(2);
+        (sum_of_squares as f64).sqrt() // cast sum from int to f64, because sqrt() is defined on floats
+    }
+
+    fn translate(&mut self, dx: i32, dy: i32) {
+        self.x += dx;
+        self.y += dy;
+    }
+}
+
 fn max(a: i32, b: i32) -> i32 {
     if a > b {
         a
@@ -37,8 +49,11 @@ fn main() {
     print_point_from_reference(&p);
     inc_x(&mut p);
     print_point_from_clone(p.clone());
-
+    
+    p.translate(-2, 10);
     // pretty-print for debug
     println!("{p:#?}");
+
+    println!("dist from origin - {}", p.dist_from_origin());
 }
 
