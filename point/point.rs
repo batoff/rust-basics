@@ -21,17 +21,21 @@ fn print_point_from_reference(point: &Point) {
 fn print_point_from_clone(point: Point) {
     println!("x: {}, y: {}", point.x, point.y);
 }
-    
+ 
+fn inc_x(point: &mut Point) {
+    point.x += 1;
+}
 
 fn main() {
     let max_num = max(10, 412);
     println!("{max_num}");
 
-    let p =  Point {
+    let mut p =  Point {
         x: 3,
         y: -6,
     };
     print_point_from_reference(&p);
+    inc_x(&mut p);
     print_point_from_clone(p.clone());
 
     // pretty-print for debug
