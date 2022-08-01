@@ -6,6 +6,10 @@ struct Point {
 }
 
 impl Point {
+    fn new(x: i32, y: i32) -> Self {
+        Self { x: x, y: y }
+    }
+
     fn dist_from_origin(&self) -> f64 {
         let sum_of_squares = self.x.pow(2) + self.y.pow(2);
         (sum_of_squares as f64).sqrt() // cast sum from int to f64, because sqrt() is defined on floats
@@ -42,10 +46,7 @@ fn main() {
     let max_num = max(10, 412);
     println!("{max_num}");
 
-    let mut p =  Point {
-        x: 3,
-        y: -6,
-    };
+    let mut p =  Point::new(3, -6);
     print_point_from_reference(&p);
     inc_x(&mut p);
     print_point_from_clone(p.clone());
