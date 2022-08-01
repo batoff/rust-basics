@@ -56,5 +56,8 @@ fn main() {
     println!("{p:#?}");
 
     println!("dist from origin - {}", p.dist_from_origin());
+    
+    let tuple = (23, 61);
+    println!("{}, {}", tuple.0, tuple.1);
 }
 
