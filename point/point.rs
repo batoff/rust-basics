@@ -6,8 +6,8 @@ struct Point {
 }
 
 impl Point {
-    fn new(x: i32, y: i32) -> Self {
-        Self { x: x, y: y }
+    fn new(x: i32, y: i32) -> Self { // instead of Self can also be Point
+        Self { x, y }
     }
 
     fn dist_from_origin(&self) -> f64 {
