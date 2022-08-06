@@ -7,7 +7,26 @@ enum Expr {
     Val(i32),
 }
 
+fn print_expr(expr: Expr) {
+    match expr {
+        Expr::Null => println!("No value"),
+        Expr::Add(x, y) => println!("{}", x + y),
+        Expr::Sub(x, y) => println!("{}", x - y),
+        Expr::Mul(x, y) => println!("{}", x * y),
+        Expr::Div{ dividend: x, divisor: 0 } => println!("Divisor is zero"),
+        Expr::Div{ dividend: x, divisor: y } => println!("{}", x / y),
+        Expr::Val(x) => println!("{}", x)
+    }
+}
+
 fn main() {
     let quotient = Expr::Div{ dividend: 10, divisor: 2 };
     let sum = Expr::Add(40, 2);
+    let null = Expr::Null;
+    let div_err = Expr::Div{ dividend: 12, divisor: 0 };
+    
+    print_expr(quotient);
+    print_expr(sum);
+    print_expr(null);
+    print_expr(div_err);
 }
