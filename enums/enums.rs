@@ -19,6 +19,23 @@ fn print_expr(expr: Expr) {
     }
 }
 
+fn uppercase(c: u8) -> u8 {
+    if let b'a'..=b'z' = c {
+        c - 32
+    }
+    else {
+        c
+    }
+}
+
+fn is_alphanumeric(c: char) -> bool {
+    match c {
+        // inclusive range
+        'a'..='z' | 'A'..='Z' | '0'..='9' => true,
+        _ => false,
+    }
+}
+
 fn main() {
     let quotient = Expr::Div{ dividend: 10, divisor: 2 };
     let sum = Expr::Add(40, 2);
